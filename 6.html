@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click-me Game</title>
+    <style>
+
+        h1{
+        font-size: 60px;
+        color: rgb(238, 45, 45);
+        text-shadow: 0px 2px ;
+        }
+       p{
+        font-size: 30px;
+        color:rgb(20, 19, 19)
+       }
+       h1{
+        text-shadow: 0px 2px 4px rgb(99, 233, 72) , 0px 5px 5px rgb(110, 83, 246);
+       }
+       img:hover{
+        border: 3px solid rgb(240, 6, 221);
+        cursor: pointer;
+        transform: skew(-10deg);
+        background-image: url('g6.jpg');
+        border-radius: 50%;
+        
+       }
+       body{
+        background-color:rgb(234, 120, 205);
+       }
+       p{
+        background-color: plum;
+        border-radius: 30%;
+       }
+       
+     </style>
+</head>
+<body style="text-align: center;
+background-size: 100%;">
+    <h1>🐼 /*/Click-me/*/🐼</style></h1>
+    <p>Click the panda picture as many times as you can in <span id="time">10</span> wacky seconds!</p>
+    <img src="panda.jpg" id="panda" alt="panda" class="panda" height="300px" width="300px" style="border: 5px solid lavender; ">
+    <p id="score" >Score: 0</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+    var panda=document.getElementById('panda');
+    var scoreDisplay=document.getElementById('score');
+    var timeDisplay=document.getElementById('time');
+    var end=document.getElementById('end');
+    var score = 0;
+    var timeLeft = 10;
+    
+    panda.addEventListener('click', function() {
+    score++;
+    scoreDisplay.textContent = 'Score: ' + score;
+    });
+    
+    var countdown = setInterval(function() {
+    timeLeft--;
+    timeDisplay.textContent = timeLeft + ' wacky seconds';
+    if (timeLeft <= 0) {
+    clearInterval(countdown);
+    end.textContent="Enough! I can't be beaten by you";
+    scoreDisplay.textContent=score;
+    }
+    }, 1000);
+    });
+    </script> 
+
+    <div id="end" style="font-size: 40px; color: rgb(9, 9, 230); text-shadow: 0px 2px 4px yellow , 0px 5px 5px red; "></div>
+   
+</body>
+</html>
